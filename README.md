@@ -12,6 +12,7 @@ Frontend:
   <li>Bootstrap 3</li>
 </ul>
 <b>For starting app:</b> java -jar -Dapp.conf={path}\application.properties  {app}.jar
+<b>Example:</b> java -jar -Dapp.conf=D:\application.properties phone-book-1.0.jar
 
 <b>Example of application.properties:</b>
 
