@@ -1,0 +1,133 @@
+<div ng-controller = "contactsCtrl" class="container">
+	<div ng-show="state == 'list'">
+		<div class="row" style="margin-top: 10px">
+			<div class="col-md-12 col-lg-12">
+				
+				<div>
+  					<div >
+						<form class="form-inline">
+							<div class="form-group">
+							    <div class="col-sm-12" style="padding-left: 0;">
+							    	<button class="btn btn-primary"  ng-click ="showForm()">Filter</button>
+							    </div>
+							 </div>
+					
+							<div ng-show = "formShow" style="margin-top: 5px; ">
+							<div class="form-group">
+							    <div class="col-sm-12" style="padding-left: 0;">
+							    	<input ng-model = "filter.firstName" class="form-control" placeholder="First name">
+							    </div>
+							 </div>
+							 <div class="form-group">
+							    <div class="col-sm-12" >
+							    	<input ng-model = "filter.lastName" class="form-control" placeholder="Last name">
+							    </div>
+							 </div>
+							 <div class="form-group">
+							    <div class="col-sm-12">
+							    	<input ng-model = "filter.phoneNumber" class="form-control" placeholder="Phone number">
+							    </div>
+							 </div>
+							 <div class="form-group" style="display: inline-block;">
+							 	<button class="btn btn-primary btn-block" ng-click = "getContacts()" style="display: inline-block;">Show</button>
+							 </div>
+							 <div class="form-group" style="display: inline-block;">
+							 	<button class="btn btn-default btn-block" ng-click = "clearFilter()" style="display: inline-block;">Clear</button>
+							 </div>
+							 </div>
+						</form>
+  					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row" style="margin-top: 10px">
+			<div class="col-md-12 col-lg-12">
+				<div class="table-responsive">
+					<table class="table table-striped">
+						<tr>
+							<th>First name</th>
+							<th>Middle name</th>
+							<th>Last name</th>
+							<th>Mobile phone number</th>
+							<th>Home phone number</th>
+							<th>Email</th>
+							<th>Address</th>
+							<th><button class="btn btn-success btn-xs" ng-click = "openAdd()">Add</button></th>
+							<th></th>
+  						</tr>
+  						<tr ng-repeat = "contact in contacts">
+      						<td>{{ contact.firstName }}</td>
+      						<td>{{ contact.middleName }}</td>
+      						<td>{{ contact.lastName }}</td>
+      						<td>{{ contact.mobilePhoneNumber }}</td>
+      						<td>{{ contact.homePhoneNumber }}</td>
+      						<td>{{ contact.email }}</td>
+      						<td>{{ contact.address }}</td>
+      						<td><button class="btn btn-warning btn-xs" ng-click = "edit(contact)">Edit</button></td>
+      						<td><button class="btn btn-danger btn-xs" ng-click = "deleteContact(contact)">Delete</button></td>
+   						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div ng-show="state == 'add'">
+		<div class="row">
+			<div class="col-md-4 col-lg-4 col-sm-offset-4 col-md-offset-4">
+				<form class="form-horizontal">
+					<div class="form-group">
+						<label class="col-sm-12" style="margin-top: 10px">Add contact:</label>
+					</div>
+					<div class="form-group">
+					    <div class="col-sm-12">
+					    	<input ng-model = "contact.firstName" class="form-control" placeholder="First name">
+					    </div>
+					 </div>
+					 <div class="form-group">
+					    <div class="col-sm-12">
+					    	<input ng-model = "contact.middleName" class="form-control" placeholder="Middle name">
+					    </div>
+					 </div>
+					 <div class="form-group">
+					    <div class="col-sm-12">
+					    	<input ng-model = "contact.lastName" class="form-control" placeholder="Last name">
+					    </div>
+					 </div>
+					 <div class="form-group">
+					    <div class="col-sm-12">
+					    	<input ng-model = "contact.homePhoneNumber" class="form-control" placeholder="Home phone number">
+					    </div>
+					 </div>
+					 <div class="form-group">
+					    <div class="col-sm-12">
+					    	<input ng-model = "contact.mobilePhoneNumber" class="form-control" placeholder="Mobile phone number">
+					    </div>
+					 </div>
+					 <div class="form-group">
+					    <div class="col-sm-12">
+					    	<input ng-model = "contact.email" class="form-control" placeholder="Email">
+					    </div>
+					 </div>
+					 <div class="form-group">
+					    <div class="col-sm-12">
+					    	<input ng-model = "contact.address" class="form-control" placeholder="Address">
+					    </div>
+					 </div>
+					 <div class="form-group">
+					 	<div class="col-sm-12">
+					 		<button ng-show="mode == 'add'" class="btn btn-success btn-block btn-xs" ng-click = "addContact()">Add</button>
+					 		<button ng-show="mode == 'update'" class="btn btn-success btn-block btn-xs"  ng-click = "updateContact()">Update</button>
+					 		<button class="btn btn-default btn-block btn-xs" ng-click="cancel()">Cancel</button>
+					 	</div>
+					 </div>
+					  <div class="form-group">
+					  	<div class="col-sm-12">
+						  	<div class="bg-danger" ng-repeat="n in errors track by $index">
+	                        	{{n}}
+	                      	</div>
+					  	</div>
+					  </div>
+				</form>
+			</div>
+	</div>
+</div>

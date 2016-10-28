@@ -1,0 +1,47 @@
+body {
+	padding-top: 50px;
+}
+
+.panel-heading {
+    padding: 5px 15px;
+}
+
+.panel-footer {
+  	padding: 1px 15px;
+  	color: #A0A0A0;
+}
+
+.profile-img {
+	width: 96px;
+	height: 96px;
+	margin: 0 auto 10px;
+	display: block;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+}
+
+.label-home{
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+.main {
+	padding: 20px;
+	padding-top: 50px;
+}
+
+@media (min-width: 768px) {
+	.main {
+	    padding-right: 40px;
+	    padding-left: 40px;
+	}
+}
+
+.main .page-header {
+	margin-top: 0;
+}
+
+th{
+	background: white;
+}
